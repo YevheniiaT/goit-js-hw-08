@@ -66,19 +66,48 @@ const images = [
 
 const galleryList = document.querySelector(".gallery");
 
-const createMarkup = ({ preview, original, description }) =>
-    `<li class="gallery-item">
+galleryList.innerHTML = createMarkup(gallery);
+
+
+function createMarkup(arr) {
+    return arr
+        .map(({ preview, original, description }) =>`
+    <li class="gallery-item">
    <a class="gallery-link" href="${original}">
    <img class="gallery-image"
    src="${preview}"
-   data-source"${original}"
+   data-source="${original}"
    alt="${description}"/>
    </a>
-    </li > ` 
+    </li > 
+`)
+        .join("");
+}
 
-const markup = images.map(createMarkup).join("");
-galleryList.insertAdjacentHTML("beforeend", markup);
 
+// const galleryList = document.querySelector(".gallery");
 
+// const createMarkup = ({ preview, original, description }) =>
+//     `<li class="gallery-item">
+//    <a class="gallery-link" href="${original}">
+//    <img class="gallery-image"
+//    src="${preview}"
+//    data-source"${original}"
+//    alt="${description}"/>
+//    </a>
+//     </li > ` 
+
+// const markup = images.map(createMarkup).join("");
+
+// galleryList.insertAdjacentHTML("beforeend", markup);
+
+// galleryList.addEventListener("click", (event) => {
+//     event.preventDefault();
+//     const img = event.target;
+//     if (event.target === event.currentTarget) {
+//         return
+//     }  
+// }
+// )
 
     

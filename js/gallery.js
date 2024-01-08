@@ -68,6 +68,18 @@ const galleryList = document.querySelector(".gallery");
 
 galleryList.innerHTML = createMarkup(images);
 
+galleryList.addEventListener("click", handleProductClick);
+
+function handleProductClick(event) {
+  event.preventDefault()
+  if (event.target === event.currentTarget) {
+    return;
+  }
+  const original = event.target.dataset.source;
+  const description = event.target.querySelector("img").alt;
+  
+}
+
 
 function createMarkup(arr) {
     return arr

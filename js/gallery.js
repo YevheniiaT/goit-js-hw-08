@@ -97,6 +97,17 @@ function createMarkup(arr) {
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
 // const galleryList = document.querySelector(".gallery");
 
 // const createMarkup = ({ preview, original, description }) =>

@@ -66,17 +66,35 @@ const images = [
 
 const galleryList = document.querySelector(".gallery");
 
+let instance = null
+
 galleryList.innerHTML = createMarkup(images);
 
 galleryList.addEventListener("click", handleProductClick);
 
 function handleProductClick(event) {
   event.preventDefault()
-  if (event.target === event.currentTarget) {
+  if (event.target.tagName !== "IMG") {
     return;
   }
   const original = event.target.dataset.source;
-  const description = event.target.querySelector("img").alt;
+  const description = event.target.alt;
+
+   instance = basicLightbox.create(`
+    <div class="modal">
+        <img  src="${original}" alt="${description}"/>
+    </div>`
+    ,
+    {onShow: (instance) => {
+      document.addEventListener("keydown", onClose);
+    },
+	
+      onClose: (instance) => {
+    document.removeEventListener("keydown", close)
+  }}
+)
+
+instance.show()
   
 }
 
@@ -96,6 +114,9 @@ function createMarkup(arr) {
         .join("");
 }
 
+function onClose(e) {
+  if (e.code === "Escape") instance.close()
+}
 
 
 

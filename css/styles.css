@@ -11,8 +11,7 @@ a {
 .container {
     width: 1440px;
     background: #fff;
-    padding: 24px 156px;
-    margin: 0 auto;
+       margin: 0 auto;
     height: 100%;
 }
 .gallery {

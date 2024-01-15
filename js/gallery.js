@@ -90,7 +90,7 @@ function handleProductClick(event) {
     },
 	
       onClose: (instance) => {
-    document.removeEventListener("keydown", close)
+    document.removeEventListener("keydown", onClose)
   }}
 )
 
